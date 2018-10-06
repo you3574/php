@@ -1,0 +1,121 @@
+<div id='sub_head'>
+<div id='sub_head_d'>
+<div class="main">
+
+<div id='search_box'>
+<form action='/ny/main.html?' method="get" accept-charset="utf-8">
+	<input type='hidden' name='show' value='mem' />
+	<select name = "mem_s" type="hidden" class='search_sel'>
+			<option value = "user_name">이름</option>
+			<option value = "user_id">아이디</option>
+			<option value = "user_tel">전화번호</option>
+			<option value = "user_ad">주소</option>
+			<option value = "user_k">#</option>
+	</select>
+	<input type="text" name="mem_v" class='search_txt'/>
+	<input type="submit" value="검색" class='search_btn'/>
+ </form>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="main">
+<?
+	if($_SERVER["REQUEST_METHOD"] == "GET"){
+
+		if(!empty($_GET['mem_s'])&&!empty($_GET['mem_v'])){
+			
+			$mem_s=$_GET['mem_s'];
+			$mem_v=$_GET['mem_v'];
+
+			$mem_result = $conn->query("SELECT * FROM user_info WHERE $mem_s LIKE '%$mem_v%';");
+			if ($mem_result->num_rows > 0) {
+			?>
+			<form method="get" action='/ny/main.html?' accept-charset="utf-8" class="over_h">
+			<input type='hidden' name='show' value='mem' />
+				<table id="user_tb" class="wth_100">
+					<tr>
+					<th width="60px">#</th>
+					<th>아이디</th>
+					<th>비밀번호</th>
+					<th>이름</th>
+					<th>생일</th>
+					<th>전화번호</th>
+					<th>주소</th>
+					<th width="60px">□</th>
+					</tr>
+			<?
+
+				while($user_mem = $mem_result->fetch_assoc()) {
+        
+					$mem_k = $user_mem['user_k'];//변수중복방지 mem사용
+					$mem_id = $user_mem['user_id'];
+					$mem_pw = $user_mem['et_pw'];
+					$mem_name = $user_mem['user_name'];
+					$mem_b = substr($user_mem['user_b'],0,6);
+					$mem_tel = $user_mem['user_tel'];
+					$mem_ad = $user_mem['user_ad'];
+					?>
+					<tr id="<?=$mem_k;?>">
+					<td><? echo $mem_k;?></td>
+					<td><? echo $mem_id;?></td>
+					<td><? echo $mem_pw;?></td>
+					<td><? echo $mem_name?></td>
+					<td><? echo $mem_b?></td>
+					<td><? echo $mem_tel?></td>
+					<td><? echo $mem_ad?></td>
+					<td><input type="checkbox" name="ck_group" value="<?=$mem_k?>" /></td>
+					</tr>
+					<?
+
+					}
+					?>
+				</table>
+			<?
+			}
+
+		}else if(!empty($_GET['ck_group'])){//이거 아님 포스트형식으로 연결
+			$ck_key=$_GET['ck_group'];
+
+			$mem_result2 = $conn->query("SELECT * FROM user_info WHERE user_k LIKE '$ck_key';");
+			
+			$who_modi = $mem_result2->fetch_assoc();
+
+					$mem_k = $who_modi['user_k'];
+					$mem_id = $who_modi['user_id'];
+					$mem_pw = $who_modi['et_pw'];
+					$mem_name = $who_modi['user_name'];
+					$mem_b = substr($who_modi['user_b'],0,6);
+					$mem_tel = $who_modi['user_tel'];
+					$mem_ad = $who_modi['user_ad'];
+
+					echo "망했어 경로 심하게 꼬였어 망할페이징 갈아엎을수도 없고어ㅏㄴ로와 아님 여기에 include로 php 따로 로딩할까??? 망항ㅇ러ㅏㅓㅇㄴ라ㅓㅏ<br/>"; //여기서 사용자 정보수정버튼누르면 php파일 들렸다가 돌아오는거로>> php에는 modify 써주고 ㅇㅇㅇ>>걍 페이지 따로 뺼까???여기 위헤 form태그 써라
+					?>
+					<form action="./lib/mem.php" method="post" accept-charset="utf-8">
+					<?
+					echo "이름 : ".$mem_name."</br>";
+					echo "주소 : <input type='text' name='modi_ad' value='".$mem_ad."' size='50' />";
+
+					?>
+					<input type='submit' value='변경' />
+					</form>
+					<?
+
+			
+		
+		}
+		
+	
+	}
+
+
+?>
+
+<div id="sub_btn" class="in_bl f_r">
+	<input type="submit" id="on_ck_box" value="더보기" onclick="" />
+</div>
+</div>
+
+</form>

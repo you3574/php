@@ -1,0 +1,91 @@
+<div id="header">
+<div class="wth_80 m_lr_10">
+	<div id="logo_h" class="in_bl f_l">
+		<img src="./img/o_logo.png" style="width: 80px;">
+	</div>
+	<div id='title_h' class="in_bl f_l">
+		PUBLIDAY
+	</div>
+	
+	<div id="header2">
+
+	<a href="#" class="btn-example" onclick="layer_open('ac_layer');return false;">
+		<div class="in_bl f_r"><img src="./img/account.png" id="account"/></div>
+	</a>
+
+	<!-- 레이어팝업 -------->
+		<div class="layer">
+			<div class="bg"></div>
+			<div id="ac_layer" class="pop-layer">
+						<!--a href="#" class="cbtn">X</a-->
+					<div class="pop-acc">
+						<img src="./img/account.png" id="ad_img" alt="여기에 php삽입하거애"/>
+						<div class="in_bl f_r" style="text-align:right;font-size: 15px; ">
+							<p style="margin-top: 8px;">이름: <?=$login_s1?></p>
+							<p>비밀번호: <?=$login_s2?></p>
+							<a href="./lib/logout.php"><div id="logout_btn"><p>로그아웃</p></div></a>
+
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+
+	<script type="text/javascript">
+	/**********************************
+		2017/08/13  딤처리 레이어
+	***********************************/
+
+		function layer_open(el){
+
+			var temp = $('#' + el);
+			var bg = temp.prev().hasClass('bg');	
+
+			if(bg){
+				$('.layer').fadeIn();
+			}
+
+			// 화면의 중앙에 레이어를 띄운다.
+			if (temp.outerHeight() < $(document).height() ) temp.css('margin-top', '-'+temp.outerHeight()/2+'px');
+			else temp.css('top', '0px');
+			if (temp.outerWidth() < $(document).width() ) temp.css('margin-left', '-'+temp.outerWidth()/2+'px');
+			else temp.css('left', '0px');
+
+			temp.find('a.cbtn').click(function(e){
+				if(bg){
+					$('.layer').fadeOut();
+				}
+				e.preventDefault();
+			});
+			
+			//배경을 클릭시 레이어 아웃
+			$('.layer .bg').click(function(e){	
+				$('.layer').fadeOut();
+				e.preventDefault();
+			});
+
+		}	
+
+	</script>	
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+
+

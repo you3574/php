@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<link rel="stylesheet" href="../css/style.css">
+
+<body>
+<div class='form-box'>
+<?php
+	include('../lib/config.php'); 
+	$error=null;
+	
+	$sql_user="select user_id, user_name, user_ad, user_tel from user_info where user_name='$user_name';";
+	
+	$result_user=$conn->query($sql_user);
+	if($result_user-> num_rows>0){
+		while($row=$result_user->fetch_assoc()){
+		echo"
+		<div class='head'>사용자정보
+		아이디: " . $row["user_id"]. "
+		이름: " . $row["user_name"]. "
+		주소" . $row["user_ad"]. "
+		전화번호" . $row["user_tel"]. "
+		<br>
+		</head>
+		</div>
+		<table class='type04'>
+		 <thead>
+			<th>회원정보수정</th>
+		 </thead>
+			<tr>
+			<th scope='cols'>NO</th>
+			<th scope='cols'>출판여부</th>
+			<th scope='cols'>배송</th>
+			</tr>
+		</thead>
+		<tbody>
+        <tr>
+            <td>
+			" . $row["user_k"]. "
+			</td>
+            <td>
+			" . $row[""]. "
+			</td>
+            <td>
+			" . $row[""]. "
+			</td>
+        </tr>
+    </tbody>
+</table>
+";
+    }
+}
+else {
+    echo "0 results";
+	}
+?>
+</body>
+</html>

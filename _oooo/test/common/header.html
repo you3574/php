@@ -1,0 +1,49 @@
+<div id="header">
+<div class="wth_80 m_lr_10">
+	<div id="logo_h" class="in_bl f_l">
+		<img src="./img/o_logo.png" style="width: 80px;">
+	</div>
+	<div id='title_h' class="in_bl f_l">
+		PUBLIDAY
+	</div>
+</div>
+</div>
+
+<div id='header_bar'>
+
+<div class='zeta-menu-bar'>
+  <ul class="zeta-menu">
+    <li><a href="#">홈</a></li>
+    <li><a href="#">관리자 메뉴</a>
+      <ul>
+        <li><a href="#">회원관리</a></li>
+        <li><a href="#">출판관리</a>
+          <ul>
+			<li><a href="#">결제관리</a></li>
+            <li><a href="#">주소록관리</a></li>
+            <li><a href="#">배송관리</a></li>
+          </ul>
+        </li>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+</div>
+
+<script>
+$(function(){
+  $(".zeta-menu li").hover(function(){
+    $('ul:first',this).show();
+  }, function(){
+    $('ul:first',this).hide();
+  });
+  $(".zeta-menu>li:has(ul)>a").each( function() {
+    $(this).html( $(this).html());
+  });
+  $(".zeta-menu ul li:has(ul)")
+    .find("a:first")
+    .append("<p style='float:right;margin:-3px'>&#9656;</p>");
+});
+</script>

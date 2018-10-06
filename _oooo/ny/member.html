@@ -1,0 +1,135 @@
+<?php
+	include('./lib/config.php'); 
+
+	$error=null;
+	
+	if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+		$user_name=addslashes($_POST['user_id']); 
+		$et_pw=addslashes($_POST['et_pw']); 
+
+		$sql_log="SELECT * FROM user_info WHERE user_name='$user_name' and et_pw='$et_pw'";
+
+
+		$result_log = $conn->query($sql_log);
+
+		if ($result_log->num_rows > 0) {
+
+			while($row_log = $result_log->fetch_assoc()) {
+				
+				$_SESSION["user_name"] = $row_log['user_name'];
+				$_SESSION["user_id"] = $row_log['user_id'];
+				header("location:main.html");
+			}
+		}
+		else{
+			$error="Your Login Name or Password is invalid";
+		
+		}
+
+	}
+
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<link rel="stylesheet" href="./css/style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+/***************************
+	2017/08/12 체크박스 제어
+***************************/
+$(document).ready(function() {
+	
+	var ck_val;//값
+
+    $('input[type="checkbox"][name="ck_group"]').click(function(){
+	
+        if ($(this).prop('checked')) {
+            
+            $('input[type="checkbox"][name="ck_group"]').prop('checked', false).closest("tr").removeAttr("style");
+            $(this).prop('checked', true).closest("tr").css({"background-color": '#F13C3C', "color": "#ffffff"});
+			ck_val = $(this).val();
+			$('#on_ck_box').show();
+
+        }
+		
+    });
+
+
+	$('#on_ck_box').click(function(){
+
+		alert(ck_val+"사용자 정보를 볼거니?");
+		//json으로 key값 넘기자 >> php로 로딩하고 근데 페이징은?ㅠ
+
+		
+    });
+
+});
+
+/****************************
+        헤더메뉴 스타일 변경
+ ***************************/
+$(function(){
+  $(".zeta-menu li").hover(function(){
+    $('ul:first',this).show();
+  }, function(){
+    $('ul:first',this).hide();
+  });
+  $(".zeta-menu>li:has(ul)>a").each( function() {
+    $(this).html( $(this).html());
+  });
+  $(".zeta-menu ul li:has(ul)")
+    .find("a:first")
+    .append("<p style='float:right;margin:-3px'>&#9656;</p>");
+});
+</script>
+
+
+
+<title>PUBLIDAY</title>
+</head>
+<body>
+
+<div id="wrapper">
+    <header>
+		<? include "./common/header.html"; ?>
+	</header>
+    <div id="container">
+
+	<div id="log_box">
+		<!--div id="logo">
+			<img src="./img/logo.png" style="width: 150px;">
+		</div-->
+		<div id="login_btn">
+		
+		<form method="post" action="" id="login">
+			<input type="text" name="user_id" class="text_box" onfocus="this.style.backgroundImage='url(none)';" onblur="if(this.value ==''){this.style.backgroundImage='url(./img/text_b.png)'}"/>
+			<input type="password" name="et_pw" class="pw_box" onfocus="this.style.backgroundImage='url(none)';" onblur="if(this.value ==''){this.style.backgroundImage='url(./img/pw_b.png)'}"/>
+
+			<input type="submit" value="login" class="btn_go"/>
+		</form>
+
+		</div>
+	</div>
+	<div id='error'>
+	<?php
+		if($error!=null){
+			echo $error;
+		}
+	?>
+	</div>
+	</div>
+    <footer><? include "./common/footer.html"; ?></footer>
+</div>
+
+</body>
+</html>
+
+

@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$(function(){
+  $(".zeta-menu li").hover(function(){
+    $('ul:first',this).show();
+  }, function(){
+    $('ul:first',this).hide();
+  });
+  $(".zeta-menu>li:has(ul)>a").each( function() {
+    $(this).html( $(this).html());
+  });
+  $(".zeta-menu ul li:has(ul)")
+    .find("a:first")
+    .append("<p style='float:right;margin:-3px'>&#9656;</p>");
+});
+
+</script>
+<style>
+#header_info{background-color: #3d3a39;width:100%;overflow: hidden;}
+	.info {margin: 0 10%; padding: 0;}
+	.info li {
+	  float: right;
+	  list-style:none;
+	  position: relative;
+	}
+
+	.info a {
+	  color: white;
+	  display: block;
+	  padding: 5px 20px;
+	  text-decoration: none;
+	  font-size: 12px;
+	}
+
+
+	#header_logo{
+      margin: 10px 0;
+	  font-size:30px;
+	  font-weight: 600;
+	  color: #3d3a39; 
+	}
+	.head_txt{}
+
+	.zeta-menu-bar {
+	  background: #3d3a39;
+	  display: inline-block;
+	  width: 100%;
+	}
+	.zeta-menu { margin: 0 10%; padding: 0; }
+	.zeta-menu li {
+	  float: left;
+	  list-style:none;
+	  position: relative;
+	}
+	.zeta-menu li:hover { //background: white; }
+	.zeta-menu li:hover>a { color: hotpink; }
+	.zeta-menu a {
+	  color: white;
+	  display: block;
+	  padding: 10px 20px;
+	  text-decoration: none;
+	}
+	.zeta-menu ul {
+	  background: #eee;
+	  border: 1px solid silver;
+	  display: none;
+	  padding: 0;
+	  position: absolute;
+	  left: 0;
+	  top: 100%;
+	  width: 130px;
+	}
+	.zeta-menu ul li { float: none; }
+	.zeta-menu ul li:hover { background: #ddd; }
+	.zeta-menu ul li:hover a { color: black; }
+	.zeta-menu ul a { color: black; }
+	.zeta-menu ul ul { left: 100%; top: 0; }
+</style>
+</head>
+<body>
+
+
+<div id="header">
+	<div id='header_info'>
+		<ul class="info">
+			<li><a href="./lib/logout.php">로그아웃</a></li>
+		</ul>
+	</div>
+	<div id='header_logo'>
+	PUBLIDAY 
+	</div>
+	<div id='header_bar'>
+		<div class='zeta-menu-bar'>
+		  <ul class="zeta-menu">
+			<li><a href="/na/"><img src="./img/home.png" width="19" /></a></li>
+			<li><a href="#">어플소개</a></li>
+			<li><a href="#">고객센터</a></li>
+			<li><a href="#">관리자 메뉴</a>
+			  <ul>
+				<li><a href="?show=mem">회원관리</a></li>
+				<li><a href="#">출판관리</a>
+				  <ul>
+					<li><a href="?show=pay">결제관리</a></li>
+					<li><a href="?show=delivery">배송관리</a></li>
+				  </ul>
+				</li>
+				</li>
+			  </ul>
+			</li>
+		  </ul>
+		</div>
+	</div>
+</div>
+</body>
+</html>

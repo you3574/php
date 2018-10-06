@@ -1,0 +1,108 @@
+<div class="main">
+
+<?
+$url='/ny/main.html?show=mem';
+$data = $conn->query("SELECT user_k FROM user_info ORDER BY user_k");
+$num = $data->num_rows;
+
+$page = (!empty($_GET['page']))?$_GET['page']:1;
+$list = 10;
+$block = 3;
+
+$pageNum = ceil($num/$list);
+$blockNum = ceil($pageNum/$block); 
+$nowBlock = ceil($page/$block); 
+
+$s_page = ($nowBlock * $block) - 2; //페이지 열개로 할거면-9해야겠지?
+if ($s_page <= 1) {
+    $s_page = 1;
+}
+$e_page = $nowBlock*$block;
+if ($pageNum <= $e_page) {
+    $e_page = $pageNum;
+}
+
+$s_point = ($page-1) * $list;
+
+$user_result = $conn->query("SELECT * FROM user_info ORDER BY user_k LIMIT $s_point,$list");
+
+if ($user_result->num_rows > 0) {
+   ?>
+	<form class="over_h">
+	<div id="wrap_table" class="wth_100 in_bl f_l">
+
+		<table id="user_tb" class="wth_100">
+			<tr>
+			<th width="60px">#</th>
+			<th>아이디</th>
+			<th>비밀번호</th>
+			<th>이름</th>
+			<th>생일</th>
+			<th>전화번호</th>
+			<th>주소</th>
+			<th width="60px">□</th>
+			</tr>
+   <?
+    while($user_r = $user_result->fetch_assoc()) {
+        
+		$user_k = $user_r['user_k'];
+		$user_id = $user_r['user_id'];
+		$et_pw = $user_r['et_pw'];
+		$user_name = $user_r['user_name'];
+		$user_b = substr($user_r['user_b'],0,6);
+		$user_tel = $user_r['user_tel'];
+		$user_ad = $user_r['user_ad'];
+
+		
+		if($user_k%2==0){
+		?>
+			<tr id="<?=$user_k?>" align='center'>
+		<?}
+		else{
+		?>
+			<tr id="<?=$user_k?>" class="odd" align='center'>
+		<?
+		}?>
+		<td><? echo $user_k;?></td>
+		<td><? echo $user_id;?></td>
+		<td><? echo $et_pw;?></td>
+		<td><? echo $user_name?></td>
+		<td><? echo $user_b?></td>
+		<td><? echo $user_tel?></td>
+		<td><? echo $user_ad?></td>
+		<td><input type="checkbox" name="ck_group" value="<?=$user_k?>" /></td>
+		</tr>
+		<?
+    }
+} 
+	
+?>
+
+</table>
+</div>
+
+
+<div id="sub_btn" class="wth_5 f_r">
+	
+		<!--a href="./publiday.html?menu=1"><div id="on_ck_box" onclick="">더보기
+		</div></a-->
+
+
+		<div id="on_ck_box" onclick="">더보기
+		</div>
+
+</div>
+</form>
+
+<div id="page_nav" class="wth_100 in_bl f_r">
+<a href="<?=$url?>&page=<?if($s_page-1<=1){$s_page = 1;echo $s_page;}else{echo $s_page-1;}?>" id="before_p"><div class="page_bl in_bl"><</div></a>
+<?
+	for ($p=$s_page; $p<=$e_page; $p++) {
+?>
+    <a href="<?=$url?>&page=<?=$p?>"><div class="page_num in_bl"><?=$p?></div></a>
+<?	}?>
+    <a href="<?=$url?>&page=<?if($pageNum <= $e_page){$e_page = $pageNum; echo $e_page;}else{echo $e_page+1;}?>" id="after_p"><div class="page_bl in_bl">></div></a>
+</div>
+
+
+</div>

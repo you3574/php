@@ -1,0 +1,96 @@
+@charset "utf-8";
+/*
+ * Nanum Gothic (Korean) http://www.google.com/fonts/earlyaccess
+ * @import url(http://fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
+ * @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+ */
+@font-face {
+	font-family: 'Nanum Barun Gothic Ultra Light';
+	font-style: normal;
+	font-weight: 400;
+	src: url(/font/nanum/NanumBarunGothic-UltraLight.eot);
+	src: url(/font/nanum/NanumBarunGothic-UltraLight.eot?#iefix) format('embedded-opentype'),
+	     url(/font/nanum/NanumBarunGothic-UltraLight.woff2) format('woff2'),
+	     url(/font/nanum/NanumBarunGothic-UltraLight.woff) format('woff'),
+	     url(/font/nanum/NanumBarunGothic-UltraLight.ttf) format('truetype');
+}
+@font-face {
+	font-family: 'Nanum Barun Gothic Light';
+	font-style: normal;
+	font-weight: 400;
+	src: url(/font/nanum/NanumBarunGothic-Light.eot);
+	src: url(/font/nanum/NanumBarunGothic-Light.eot?#iefix) format('embedded-opentype'),
+	     url(/font/nanum/NanumBarunGothic-Light.woff2) format('woff2'),
+	     url(/font/nanum/NanumBarunGothic-Light.woff) format('woff'),
+	     url(/font/nanum/NanumBarunGothic-Light.ttf) format('truetype');
+}
+@font-face {
+	font-family: 'Nanum Barun Gothic';
+	font-style: normal;
+	font-weight: 400;
+	src: url(/font/nanum/NanumBarunGothic-Regular.eot);
+	src: url(/font/nanum/NanumBarunGothic-Regular.eot?#iefix) format('embedded-opentype'),
+	     url(/font/nanum/NanumBarunGothic-Regular.woff2) format('woff2'),
+	     url(/font/nanum/NanumBarunGothic-Regular.woff) format('woff'),
+	     url(/font/nanum/NanumBarunGothic-Regular.ttf) format('truetype');
+}
+@font-face {
+	font-family: 'Nanum Barun Gothic Bold';
+	font-style: normal;
+	font-weight: 400;
+	src: url(/font/nanum/NanumBarunGothic-Bold.eot);
+	src: url(/font/nanum/NanumBarunGothic-Bold.eot?#iefix) format('embedded-opentype'),
+	     url(/font/nanum/NanumBarunGothic-Bold.woff2) format('woff2'),
+	     url(/font/nanum/NanumBarunGothic-Bold.woff) format('woff'),
+	     url(/font/nanum/NanumBarunGothic-Bold.ttf) format('truetype');
+}
+@font-face {
+	font-family: 'Nanum Gothic';
+	font-style: normal;
+	font-weight: 400;
+	src: url(/font/nanum/NanumGothic-Regular.eot);
+	src: url(/font/nanum/NanumGothic-Regular.eot?#iefix) format('embedded-opentype'),
+	     url(/font/nanum/NanumGothic-Regular.woff2) format('woff2'),
+	     url(/font/nanum/NanumGothic-Regular.woff) format('woff'),
+	     url(/font/nanum/NanumGothic-Regular.ttf) format('truetype');
+}
+@font-face {
+	font-family: 'Nanum Gothic Bold';
+	font-style: normal;
+	font-weight: 700;
+	src: url(/font/nanum/NanumGothic-Bold.eot);
+	src: url(/font/nanum/NanumGothic-Bold.eot?#iefix) format('embedded-opentype'),
+	     url(/font/nanum/NanumGothic-Bold.woff2) format('woff2'),
+	     url(/font/nanum/NanumGothic-Bold.woff) format('woff'),
+	     url(/font/nanum/NanumGothic-Bold.ttf) format('truetype');
+}
+@font-face {
+	font-family: 'Noto Sans Regular';
+	font-style: normal;
+	font-weight: normal;
+	src: url(/font/noto/NotoSans-Regular.eot);
+	src: url(/font/noto/NotoSans-Regular.eot?#iefix) format('embedded-opentype'),
+	     url(/font/noto/NotoSans-Regular.woff) format('woff'),
+	     url(/font/noto/NotoSans-Regular.woff) format('woff'),
+	     url(/font/noto/NotoSans-Regular.otf) format('opentype');
+}
+@font-face {
+	font-family: 'Noto Sans Light';
+	font-style: normal;
+	font-weight: normal;
+	src: url(/font/noto/NotoSans-Light.eot);
+	src: url(/font/noto/NotoSans-Light.eot?#iefix) format('embedded-opentype'),
+	     url(/font/noto/NotoSans-Light.woff) format('woff'),
+	     url(/font/noto/NotoSans-Light.woff) format('woff'),
+	     url(/font/noto/NotoSans-Light.otf) format('opentype');
+}
+@font-face {
+	font-family: 'Noto Sans DemiLight';
+	font-style: normal;
+	font-weight: normal;
+	src: url(/font/noto/NotoSans-DemiLight.eot);
+	src: url(/font/noto/NotoSans-DemiLight.eot?#iefix) format('embedded-opentype'),
+	     url(/font/noto/NotoSans-DemiLight.woff) format('woff'),
+	     url(/font/noto/NotoSans-DemiLight.woff) format('woff'),
+	     url(/font/noto/NotoSans-DemiLight.otf) format('opentype');
+}

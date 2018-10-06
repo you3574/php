@@ -1,0 +1,85 @@
+<?php
+include('../lib/lock.php'); 
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<link rel="stylesheet" href="../css/style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<div id="search_box" class="wth_80 m_lr_10">
+	<div class="sh_txt">PUBLIDAY ALBUM</div>
+</div>
+<body>
+<?
+	if($_SERVER['REQUEST_METHOD'] == "POST"){
+		
+		$search=$_POST["search"];
+		if((!empty($_POST['search']))&&(!empty($_POST['whats'])))
+		{
+			$search=$_POST['search'];
+			$whats=$_POST['whats'];
+
+			$sql_s = "SELECT user_k, user_id, user_name FROM user_info where ( user_id like '%$search%' ) or (user_name like '%$search%') ";
+			
+			$result_s = $conn->query($sql_s);
+
+				if ($result_s->num_rows > 0){
+					echo"
+					<form>
+					<div id='wrappser_s'>
+					<table class='type09'>
+					 <thead>
+					 <tr>
+						<th scope='cols'>#</th>
+						<th scope='cols'>아이디</th>
+						<th scope='cols'>이름</th>
+						<th scope='cols'>체크</th>
+					 </tr>
+					 </thead>
+					";
+					while($row_s = $result_s->fetch_assoc()) {
+					echo"
+					 <tbody>
+					 <tr>
+					 <td>
+						 #: " . $row_s['user_k']." 
+					 </td>
+					 <td>
+						ID: ". $row_s['user_id']. "
+					 </td>
+					 <td>
+						 NAME: " . $row_s['user_name']."
+					 </td>
+					 <td>
+						<input type='checkbox'>
+					 </td>
+					 </tr>
+					 ";
+					 
+						}
+						echo"
+						</tbody>
+						</table>
+						</div>
+						</form>
+						";
+				}
+			
+				}
+				else{
+					echo'<script>alert("검색어가 없습니다");</script>';
+				}
+}				
+
+?>
+	<div id="sub_btn" class="wth_5 f_r">
+		<a href=""><div id="send">보내기</div></a>
+	</div>
+
+</body>
+</html>

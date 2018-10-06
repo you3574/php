@@ -1,0 +1,143 @@
+@import url('/css/font.css');
+@import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
+
+/***********************
+	전체적인 레이아웃
+***********************/
+
+	html, body {
+		margin:0;
+		padding:0;
+		height:100%;
+		font-family:malgun gothic,맑은고딕 !important;
+		font-weight: 400;
+		letter-spacing: 0.06em;}
+	#wrapper {
+		position:relative;
+		min-height:100%;}
+
+	#container {margin-top:40px;}
+
+	header {
+		height:80px;
+		background-color:#3d3a39;
+		color:#ffffff;}
+
+	footer {
+		position:absolute;
+		bottom:0;
+		width:100%;
+		padding:30px 0;
+		margin-top:100px;
+		background-color: #3d3a39; 
+		color:#ffffff; 
+		overflow:hidden;}
+
+
+	/********************************
+		클래스 지정시 편리하게 스타일 적용
+	********************************/
+
+	.f_l {float:left}
+	.f_r {float:right}
+
+	.in_bl {display:inline-block}
+
+
+	.wth_100 {width:100%;}
+	.wth_90 {width:90%;}
+	.wth_80 {width:80%;}
+	.wth_70 {width:70%;}
+	.wth_50 {width:50%;}
+	.wth_30 {width:30%;}
+	.wth_25 {width:25%;}
+	.wth_20 {width:20%;}
+	.wth_10 {width:10%;}
+	.wth_5 {width:5%;}
+
+
+	.m_l_10 {margin-left:10%;}
+	
+	.m_r_10 {margin-right:10%;}
+
+	.m_lr_20 {margin: 0 20%;}
+	.m_lr_15 {margin: 0 15%;}
+	.m_lr_10 {margin: 0 10%;}
+	.m_lr_5 {margin: 0 5%;}
+
+	
+
+	.f_s_10 {font-size:10px;}
+	.f_s_12 {font-size:12px;}
+	.f_s_14 {font-size:14px;}
+	.f_s_16 {font-size:16px;}
+	.f_s_18 {font-size:18px;}
+	.f_s_20 {font-size:20px;}
+	.f_s_25 {font-size:25px;}
+	.f_s_30 {font-size:30px;}
+	.f_s_40 {font-size:40px;}
+	.f_s_45 {font-size:45px;}
+	.f_s_50 {font-size:50px;}
+	.f_s_55 {font-size:55px;}
+
+
+/*****************************
+		HEADER STYLE
+******************************/
+	#header {
+			font-size:25px;
+			overflow:hidden;}
+	#title_h {margin-top:20px;}
+	
+	#account {
+			width: 27px;padding-top: 29px;}
+
+
+	#logout_btn {	background: linear-gradient(to right,#FF5012, #FFA012) fixed;
+				border-radius:5px;
+				color:#ffffff;
+				text-align:center;
+				width:100px;}
+
+
+	.zeta-menu-bar {
+	  background: hotpink;
+	  display: inline-block;
+	  width: 100%;
+	}
+	.zeta-menu { margin: 0 10%; padding: 0; }
+	.zeta-menu li {
+	  float: left;
+	  list-style:none;
+	  position: relative;
+	}
+	.zeta-menu li:hover { background: white; }
+	.zeta-menu li:hover>a { color: hotpink; }
+	.zeta-menu a {
+	  color: white;
+	  display: block;
+	  padding: 10px 20px;
+	  text-decoration: none;
+	}
+	.zeta-menu ul {
+	  background: #eee;
+	  border: 1px solid silver;
+	  display: none;
+	  padding: 0;
+	  position: absolute;
+	  left: 0;
+	  top: 100%;
+	  width: 180px;
+	}
+	.zeta-menu ul li { float: none; }
+	.zeta-menu ul li:hover { background: #ddd; }
+	.zeta-menu ul li:hover a { color: black; }
+	.zeta-menu ul a { color: black; }
+	.zeta-menu ul ul { left: 100%; top: 0; }
+	.zeta-menu ul ul li {float:left; margin-right:10px;}
+
+
+/*****************************
+		FOOTER STYLE
+******************************/
+#foot p {font-size:11px;}

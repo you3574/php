@@ -1,0 +1,71 @@
+<?
+$user_sql="select * from user_info limit 0, 10;";
+$user_result = $conn->query($user_sql);
+
+if ($user_result->num_rows > 0) {
+   ?>
+	<form>
+	<div id="wrap_table" class="wth_80 m_l_10 in_bl f_l">
+
+		<table id="user_tb" class="wth_100">
+			<tr>
+			<th width="60px">#</th>
+			<th>아이디</th>
+			<th>비밀번호</th>
+			<th>이름</th>
+			<th>생일</th>
+			<th>전화번호</th>
+			<th>주소</th>
+			<th width="60px">□</th>
+			</tr>
+   <?
+    while($user_r = $user_result->fetch_assoc()) {
+        
+		$user_k = $user_r['user_k'];
+		$user_id = $user_r['user_id'];
+		$et_pw = $user_r['et_pw'];
+		$user_name = $user_r['user_name'];
+		$user_b = substr($user_r['user_b'],0,6);
+		$user_tel = $user_r['user_tel'];
+		$user_ad = $user_r['user_ad'];
+
+		
+		if($user_k%2==0){
+		?>
+			<tr id="<?=$user_k?>" align='center'>
+		<?}
+		else{
+		?>
+			<tr id="<?=$user_k?>" class="odd" align='center'>
+		<?
+		}?>
+		<td><? echo $user_k;?></td>
+		<td><? echo $user_id;?></td>
+		<td><? echo $et_pw;?></td>
+		<td><? echo $user_name?></td>
+		<td><? echo $user_b?></td>
+		<td><? echo $user_tel?></td>
+		<td><? echo $user_ad?></td>
+		<td><input type="checkbox" name="ck_group" value="<?=$user_k?>" /></td>
+		</tr>
+		<?
+    }
+} 
+	
+?>
+
+</table>
+</div>
+
+<div id="sub_btn" class="wth_5 f_r">
+	
+		<!--a href="./publiday.html?menu=1"><div id="on_ck_box" onclick="">더보기
+		</div></a-->
+
+
+		<div id="on_ck_box" onclick="">더보기
+		</div>
+		<a href=""><div id="pg_up">UP</div></a>
+
+</div>
+</form>
