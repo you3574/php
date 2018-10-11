@@ -1,0 +1,177 @@
+<script type="text/javascript">
+
+	function fn_rollToEx(containerID,slideID,stepNum,autoStart){
+
+		// 롤링할 객체를 변수에 담아둔다.
+		var el = $('#'+containerID).find('#'+slideID);
+		var lastChild;
+		var speed = 3000;
+		var timer = 0;
+		var autoplay = false;
+
+		el.data('prev', $('#'+containerID).find('.prev'));	
+		el.data('next', $('#'+containerID).find('.next'));	
+		el.data('play', $('#'+containerID).find('#bStart')); 
+		el.data('stop', $('#'+containerID).find('#bStop')); 
+		el.data('size', el.children().outerWidth());		
+		el.data('len', el.children().length);			
+		el.data('animating',false);
+		el.data('step', stepNum);								
+		el.data('autoStart', false);							
+
+		el.css('width',el.data('size')*el.data('len'));		
+		
+		if(arguments.length==4){
+			el.data('autoStart', autoStart);
+		}
+
+		if(el.data('autoStart')){
+			if(timer==0){
+				timer = setInterval(moveNextSlide, speed);
+				autoplay = true;
+			}
+		}
+
+		
+		el.bind({
+			mouseenter:function(){
+				if(!autoplay) return false;
+
+				if(timer!=0 && el.data('autoStart')){
+					clearInterval(timer); 
+					timer=0;
+				}
+			},
+			mouseleave:function(){
+				if(!autoplay) return false; 
+
+				if(timer==0 && el.data('autoStart')){
+					timer = setInterval(moveNextSlide, speed); 
+				}
+			}
+		});
+
+
+		
+		el.data('prev').bind({
+			click:function(e){
+				e.preventDefault(); 
+				movePrevSlide(); 
+			},
+			
+			mouseenter:function(){
+				if(!autoplay) return false;
+
+				if(timer!=0 && el.data('autoStart')){
+					clearInterval(timer);
+					timer=0;
+				}
+			},
+			mouseleave:function(){
+				if(!autoplay) return false;
+
+				if(timer==0 && el.data('autoStart')){
+					timer = setInterval(moveNextSlide, speed);
+				}
+			}
+		});
+
+		
+		el.data('next').bind({
+			click:function(e){
+				e.preventDefault();
+				moveNextSlide();
+			},
+			mouseenter:function(){
+				if(!autoplay) return false;
+
+				if(timer!=0 && el.data('autoStart')){
+					clearInterval(timer);
+					timer=0;
+				}
+			},
+			mouseleave:function(){
+				if(!autoplay) return false;
+
+				if(timer==0 && el.data('autoStart')){
+					timer = setInterval(moveNextSlide, speed);
+				}
+			}
+		});
+
+		el.data('play').bind({
+			click:function(){
+				if(timer==0 && el.data('autoStart')){
+					timer = setInterval(moveNextSlide, speed);
+					autoplay = true;
+				}
+			}
+		});
+
+		el.data('stop').bind({
+			click:function(){
+				if(timer!=0 && el.data('autoStart')){
+					clearInterval(timer);
+					timer=0;
+					autoplay = false;
+				}
+			}
+		});
+		
+		function movePrevSlide(){
+			if(!el.data('animating')){
+				
+				var lastItem = el.children().eq(-(el.data('step')+1)).nextAll().clone(true);
+				lastItem.prependTo(el);		
+				el.children().eq(-(el.data('step')+1)).nextAll().remove();	
+				el.css('left','-'+(el.data('size')*el.data('step'))+'px');	
+				el.data('animating',true);	
+
+				el.animate({'left': '0px'},'slow',function(){		
+					el.data('animating',false);
+				});
+			}
+			return false;
+		}
+
+		function moveNextSlide(){
+			if(!el.data('animating')){
+				el.data('animating',true);
+
+				el.animate({'left':'-'+(el.data('size')*el.data('step'))+'px'},'slow',function(){	
+					
+					var firstChild = el.children().filter(':lt('+el.data('step')+')').clone(true);
+					firstChild.appendTo(el);	
+					el.children().filter(':lt('+el.data('step')+')').remove();	
+					el.css('left','0px');	
+
+					el.data('animating',false);
+				});
+			}
+			return false;
+		}
+
+	}
+</script>
+
+
+<div id="slider2" style="margin: 0px auto; width: 100%; position: relative;">
+	<!--a class="prev" id="prev2" href="#"><img alt="이전" src="./img/btn_l.png"></a-->
+	<div class="slide-wrap">
+		<ul class="slide-list mt15" id="photo">
+			<li>
+				<img alt="" src="./img/roll1.png" class="nav_img">
+			</li>
+			<li>
+				<img alt="" src="./img/roll2.png" class="nav_img">
+			</li>
+			<li>
+				<img alt="" src="./img/roll3.png" class="nav_img">
+				<a href="https://play.google.com/store" target="_blank"><img alt="" src="./img/app_btn.png" class="app_btn"></a>
+			</li>
+		</ul>
+	</div>
+	<!--a class="next" id="next2" href="#"><img alt="다음" src="./img/btn_r.png"></a-->
+</div>
+<script type="text/javascript">fn_rollToEx('slider2', 'photo',1,true);</script>
+
