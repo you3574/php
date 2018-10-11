@@ -1,0 +1,41 @@
+<?
+	include('./lib/func.php'); 
+?>
+<div class="wrap">
+<div class="sub_h">
+	<p>LATEST NEWS</p>
+</div>
+
+<div id="sub">
+<div class="back_rule">
+
+	<div class="in_bl f_l sub_box">
+			<div class="sub_tit in_bl">공지사항&nbsp;&nbsp;</div>
+			<div class="sub_tit2 in_bl">Notice</div>
+		<div id="sub1">
+		<?
+			latest_article('note', 4);
+		?>
+		</div>
+		
+		<a href="/note/list.php"><div class="btn_plus">더보기 +</div></a>
+	</div>
+	<!--td rowspan='2' style="border-right:1px solid #ddd;"></td-->
+	<div class="in_bl f_l sub_mid"></div>
+
+	<div class="in_bl f_l sub_box">
+			<div class="sub_tit in_bl">고객센터&nbsp;&nbsp;</div>
+			<div class="sub_tit2 in_bl">Customer Service</div>
+		<div id="sub2">
+		<?
+			latest_article('free', 4);
+		?>
+		</div>
+		<a href="/free/list.php"><div class="btn_plus">더보기 +</div></a>
+	</div>
+
+</div>
+</div>
+
+</div>
+

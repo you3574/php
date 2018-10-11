@@ -1,0 +1,119 @@
+lease {
+  interface "eth0";
+  fixed-address 172.31.10.107;
+  option subnet-mask 255.255.240.0;
+  option routers 172.31.0.1;
+  option dhcp-lease-time 3600;
+  option dhcp-message-type 5;
+  option domain-name-servers 172.31.0.2;
+  option dhcp-server-identifier 172.31.0.1;
+  option interface-mtu 9001;
+  option broadcast-address 172.31.15.255;
+  option host-name "ip-172-31-10-107";
+  option domain-name "ap-northeast-2.compute.internal";
+  renew 5 2018/03/23 09:54:14;
+  rebind 5 2018/03/23 10:19:39;
+  expire 5 2018/03/23 10:27:09;
+}
+lease {
+  interface "eth0";
+  fixed-address 172.31.10.107;
+  option subnet-mask 255.255.240.0;
+  option routers 172.31.0.1;
+  option dhcp-lease-time 3600;
+  option dhcp-message-type 5;
+  option domain-name-servers 172.31.0.2;
+  option dhcp-server-identifier 172.31.0.1;
+  option interface-mtu 9001;
+  option broadcast-address 172.31.15.255;
+  option host-name "ip-172-31-10-107";
+  option domain-name "ap-northeast-2.compute.internal";
+  renew 5 2018/03/23 10:23:55;
+  rebind 5 2018/03/23 10:46:44;
+  expire 5 2018/03/23 10:54:14;
+}
+lease {
+  interface "eth0";
+  fixed-address 172.31.10.107;
+  option subnet-mask 255.255.240.0;
+  option routers 172.31.0.1;
+  option dhcp-lease-time 3600;
+  option dhcp-message-type 5;
+  option domain-name-servers 172.31.0.2;
+  option dhcp-server-identifier 172.31.0.1;
+  option interface-mtu 9001;
+  option broadcast-address 172.31.15.255;
+  option host-name "ip-172-31-10-107";
+  option domain-name "ap-northeast-2.compute.internal";
+  renew 5 2018/03/23 10:50:10;
+  rebind 5 2018/03/23 11:16:25;
+  expire 5 2018/03/23 11:23:55;
+}
+lease {
+  interface "eth0";
+  fixed-address 172.31.10.107;
+  option subnet-mask 255.255.240.0;
+  option routers 172.31.0.1;
+  option dhcp-lease-time 3600;
+  option dhcp-message-type 5;
+  option domain-name-servers 172.31.0.2;
+  option dhcp-server-identifier 172.31.0.1;
+  option interface-mtu 9001;
+  option broadcast-address 172.31.15.255;
+  option host-name "ip-172-31-10-107";
+  option domain-name "ap-northeast-2.compute.internal";
+  renew 5 2018/03/23 11:17:09;
+  rebind 5 2018/03/23 11:42:40;
+  expire 5 2018/03/23 11:50:10;
+}
+lease {
+  interface "eth0";
+  fixed-address 172.31.10.107;
+  option subnet-mask 255.255.240.0;
+  option routers 172.31.0.1;
+  option dhcp-lease-time 3600;
+  option dhcp-message-type 5;
+  option domain-name-servers 172.31.0.2;
+  option dhcp-server-identifier 172.31.0.1;
+  option interface-mtu 9001;
+  option broadcast-address 172.31.15.255;
+  option host-name "ip-172-31-10-107";
+  option domain-name "ap-northeast-2.compute.internal";
+  renew 5 2018/03/23 11:42:50;
+  rebind 5 2018/03/23 12:09:39;
+  expire 5 2018/03/23 12:17:09;
+}
+lease {
+  interface "eth0";
+  fixed-address 172.31.10.107;
+  option subnet-mask 255.255.240.0;
+  option routers 172.31.0.1;
+  option dhcp-lease-time 3600;
+  option dhcp-message-type 5;
+  option domain-name-servers 172.31.0.2;
+  option dhcp-server-identifier 172.31.0.1;
+  option interface-mtu 9001;
+  option broadcast-address 172.31.15.255;
+  option host-name "ip-172-31-10-107";
+  option domain-name "ap-northeast-2.compute.internal";
+  renew 5 2018/03/23 12:08:21;
+  rebind 5 2018/03/23 12:35:20;
+  expire 5 2018/03/23 12:42:50;
+}
+lease {
+  interface "eth0";
+  fixed-address 172.31.10.107;
+  option subnet-mask 255.255.240.0;
+  option routers 172.31.0.1;
+  option dhcp-lease-time 3600;
+  option dhcp-message-type 5;
+  option domain-name-servers 172.31.0.2;
+  option dhcp-server-identifier 172.31.0.1;
+  option interface-mtu 9001;
+  option broadcast-address 172.31.15.255;
+  option host-name "ip-172-31-10-107";
+  option domain-name "ap-northeast-2.compute.internal";
+  renew 5 2018/03/23 12:34:11;
+  rebind 5 2018/03/23 13:00:51;
+  expire 5 2018/03/23 13:08:21;
+}
